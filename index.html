@@ -51,7 +51,7 @@
     <div class="header">
         <img src="app-icon.png" alt="Mohri App Icon" class="app-icon">
         <h1>Privacy Policy for Mohri</h1>
-        <p class="last-updated">Last updated: March 10, 2025</p>
+        <p class="last-updated">Last updated: March 21, 2026</p>
     </div>
 
     <h2>Overview</h2>
@@ -60,54 +60,97 @@
     <h2>Data Storage</h2>
     <p>Mohri stores all your task data locally on your Mac. Your tasks, notes, comments, attachments, and all other information remain on your device and are not sent to any external servers by default.</p>
 
-    <h2>iCloud Sync and Sharing (Optional)</h2>
-    <p>If you choose to use the task sharing features, Mohri uses Apple's CloudKit to sync shared tasks between users. This data is:</p>
+    <h2>Information We Collect</h2>
+    <p>Mohri collects the following information only when you use collaboration features:</p>
     <ul>
-        <li>Stored securely in your iCloud account</li>
-        <li>Protected by Apple's security and privacy policies</li>
-        <li>Only accessible to users you explicitly share tasks with</li>
-        <li>Encrypted during transmission and storage</li>
+        <li><strong>Email address:</strong> Entered during first launch setup. Used to identify you when sharing tasks and groups with other users. Stored in Apple's CloudKit (iCloud).</li>
+        <li><strong>Display name:</strong> Used to show who made changes, comments, and mentions. Stored locally and in CloudKit.</li>
+        <li><strong>Task data:</strong> When you share a task, its content (title, description, status, priority, due date, comments, history) is stored in CloudKit's public database so recipients can access it.</li>
+        <li><strong>Group membership:</strong> When you create or join a group, member email addresses are stored in CloudKit to enable collaboration.</li>
     </ul>
 
-    <h2>Data Collection</h2>
-    <p>Mohri does not collect, store, track, or share any personal information beyond what you choose to store in your tasks. Specifically:</p>
+    <h2>iCloud Sync and Sharing</h2>
+    <p>Mohri uses Apple's CloudKit for task sync and collaboration. This data is:</p>
+    <ul>
+        <li>Stored securely in Apple's iCloud infrastructure</li>
+        <li>Protected by Apple's security and privacy policies</li>
+        <li>Only accessible to users you explicitly share tasks with</li>
+        <li>Encrypted during transmission</li>
+    </ul>
+    <p>Personal tasks (not shared) are stored in your private iCloud database and are not accessible to anyone else.</p>
+    <p>Shared tasks are stored in CloudKit's public database to enable cross-account collaboration. Only users with the specific task ID can access shared task data.</p>
+
+    <h2>Email Notification Service</h2>
+    <p>Mohri uses <strong>Brevo</strong> (formerly Sendinblue), a third-party email service, to send task sharing invitations and mention notifications. When an email is sent:</p>
+    <ul>
+        <li>The recipient's email address is transmitted to Brevo's servers to deliver the email</li>
+        <li>Basic task information (title, priority, status) is included in the email body</li>
+        <li>Brevo processes this data according to their <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank">privacy policy</a></li>
+        <li>We do not share any other personal data with Brevo</li>
+        <li>Emails are only sent when you explicitly share a task or mention someone</li>
+    </ul>
+
+    <h2>Data We Do NOT Collect</h2>
     <ul>
         <li>We do not collect analytics or usage data</li>
-        <li>We do not track your activities</li>
-        <li>We do not sell or share your data with third parties</li>
+        <li>We do not track your activities or behavior</li>
+        <li>We do not sell or share your data with third parties for advertising</li>
         <li>We do not use advertising or tracking technologies</li>
+        <li>We do not access your contacts, location, or other device data</li>
     </ul>
 
     <h2>Shared Tasks</h2>
     <p>When you share a task with another user:</p>
     <ul>
-        <li>Only the specific task information you choose to share is transmitted via iCloud</li>
+        <li>Only the specific task information is shared via CloudKit</li>
         <li>Recipients can only see tasks you explicitly share with them</li>
-        <li>You control who has access to your shared tasks</li>
+        <li>You control who has access through roles (Owner, Editor, Viewer)</li>
         <li>You can revoke sharing access at any time</li>
+        <li>If the recipient is not a Mohri user, they receive an invitation email via Brevo</li>
     </ul>
 
-    <h2>Mentions and Collaboration</h2>
-    <p>When you mention another user in a task or comment, that user will receive a notification (if enabled in their system settings). Mentions are only sent to users who already have access to the shared task.</p>
+    <h2>Groups</h2>
+    <p>When you create or join a group:</p>
+    <ul>
+        <li>Group name, emoji, and member email addresses are stored in CloudKit's public database</li>
+        <li>Group data is only visible to group members</li>
+        <li>You can leave a group at any time, which revokes your access to group-shared tasks</li>
+        <li>Group owners can delete the group, which removes all associated shared task data</li>
+    </ul>
+
+    <h2>Mentions and Notifications</h2>
+    <p>When you mention another user in a task description or comment:</p>
+    <ul>
+        <li>The mentioned user receives an email notification via Brevo</li>
+        <li>Mentions are only available for users the task is shared with</li>
+        <li>Local macOS notifications are used for due date reminders (no data leaves your device)</li>
+    </ul>
 
     <h2>File Attachments</h2>
-    <p>Any files or images you attach to tasks are stored locally on your device. If you share a task with attachments, those attachments are securely transmitted via iCloud only to the users you've shared the task with.</p>
+    <p>Files and images attached to tasks are stored locally on your device and encoded within the task's local JSON data. Attachments in shared tasks are included in the CloudKit sync.</p>
 
     <h2>Data Security</h2>
-    <p>Mohri uses industry-standard security practices:</p>
     <ul>
-        <li>All data transmission uses Apple's secure CloudKit infrastructure</li>
-        <li>Local data is protected by macOS security features</li>
-        <li>The app is sandboxed and follows Apple's security guidelines</li>
+        <li>All CloudKit data transmission uses Apple's secure infrastructure with encryption in transit</li>
+        <li>Local data is protected by macOS security features and app sandboxing</li>
+        <li>Email transmission to Brevo uses HTTPS encryption</li>
+        <li>The app follows Apple's App Sandbox security guidelines</li>
+        <li>Task data is backed up locally before loading to prevent data loss</li>
     </ul>
 
     <h2>Your Rights</h2>
     <p>You have complete control over your data:</p>
     <ul>
-        <li>You can delete any task, comment, or attachment at any time</li>
-        <li>You can stop using sharing features and keep all data local</li>
-        <li>You can delete the app and all associated data from your device</li>
+        <li>Delete any task, comment, attachment, or group at any time</li>
+        <li>Revoke sharing access for any task</li>
+        <li>Leave any group to remove access to shared tasks</li>
+        <li>Stop using sharing features and keep all data local</li>
+        <li>Delete the app and all associated local data from your device</li>
+        <li>Request deletion of your CloudKit data by contacting us</li>
     </ul>
+
+    <h2>Data Retention</h2>
+    <p>Local task data is retained on your device until you delete it. CloudKit data for shared tasks and groups is retained until you unshare or delete them. Your user registration in the Mohri directory (email and display name) is retained to enable collaboration features and can be removed upon request.</p>
 
     <h2>Changes to This Privacy Policy</h2>
     <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. Continued use of Mohri after changes constitutes acceptance of the updated policy.</p>
@@ -117,11 +160,11 @@
 
     <div class="contact">
         <h2>Contact Us</h2>
-        <p>If you have any questions about this privacy policy or how Mohri handles your data, please contact us at:</p>
+        <p>If you have any questions about this privacy policy, how Mohri handles your data, or to request data deletion, please contact us at:</p>
         <p><strong>Email:</strong> wadekargajanan@gmail.com</p>
     </div>
 
     <hr>
-    <p style="text-align: center; color: #999; font-size: 0.9em;">© 2025 Mohri. All rights reserved.</p>
+    <p style="text-align: center; color: #999; font-size: 0.9em;">&copy; 2026 Mohri. All rights reserved.</p>
 </body>
 </html>
